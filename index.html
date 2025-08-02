@@ -1,254 +1,263 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROGRES - Portail Étudiant</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROGRES - Portail Étudiant</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e8e8e8;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8e8e8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .header {
-            background-color: white;
-            width: 100%;
-            max-width: 600px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    .header {
+      background-color: white;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-        .logo-section {
-            padding: 20px;
-            text-align: center;
-        }
+    .logo-section {
+      padding: 20px;
+      text-align: center;
+    }
 
-        .ministry-text {
-            color: #666;
-            font-size: 14px;
-            margin: 10px 0;
-        }
+    .info-section {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 0 20px 20px 20px;
+    }
 
-        .ministry-text-french {
-            font-size: 12px;
-            font-style: italic;
-        }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #155724;
+    }
 
-        .flag {
-            width: 30px;
-            height: 20px;
-            border: 1px solid #ccc;
-            margin-left: 10px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    .info-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #17a2b8;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      margin-right: 10px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
 
-        .info-section {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 0 20px 20px 20px;
-        }
+    .login-container {
+      background-color: white;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
 
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            font-size: 13px;
-            color: #155724;
-        }
+    .login-header {
+      background-color: #f8f9fa;
+      padding: 25px;
+      text-align: center;
+      border-bottom: 1px solid #dee2e6;
+    }
 
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
+    .login-title {
+      color: #666;
+      font-size: 22px;
+      margin-bottom: 5px;
+      font-weight: 300;
+    }
 
-        .info-icon {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #17a2b8;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 10px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+    .login-subtitle {
+      color: #999;
+      font-size: 16px;
+      font-weight: 300;
+    }
 
-        .login-container {
-            background-color: white;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+    .login-form {
+      padding: 30px;
+    }
 
-        .login-header {
-            background-color: #f8f9fa;
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #dee2e6;
-        }
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
 
-        .login-title {
-            color: #666;
-            font-size: 22px;
-            margin-bottom: 5px;
-            font-weight: 300;
-        }
+    .form-input {
+      width: 100%;
+      padding: 12px 45px 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff;
+      transition: border-color 0.3s;
+    }
 
-        .login-subtitle {
-            color: #999;
-            font-size: 16px;
-            font-weight: 300;
-        }
+    .form-input:focus {
+      outline: none;
+      border-color: #007bff;
+    }
 
-        .login-form {
-            padding: 30px;
-        }
+    .input-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 16px;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
+    .show-password {
+      margin-top: -10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #333;
+    }
 
-        .form-input {
-            width: 100%;
-            padding: 12px 45px 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #333;
-            background-color: #fff;
-            transition: border-color 0.3s;
-        }
+    .login-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        .form-input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
+    .login-btn:hover {
+      background-color: #218838;
+    }
 
-        .form-input::placeholder {
-            color: #999;
-        }
+    .forgot-password {
+      background-color: #6c757d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        .input-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-            font-size: 16px;
-        }
+    .forgot-password:hover {
+      background-color: #5a6268;
+    }
 
-        .login-btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+    }
 
-        .login-btn:hover {
-            background-color: #218838;
-        }
-
-        .forgot-password {
-            background-color: #6c757d;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .forgot-password:hover {
-            background-color: #5a6268;
-        }
-
-        .footer {
-            margin-top: 30px;
-            text-align: center;
-            color: #666;
-            font-size: 12px;
-        }
-
-        .logo-section img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    #error-panel {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-section">
-            <img src="https://progres.mesrs.dz/webfve/images/logo.png" alt="Logo Ministère">
-            <div class="rainbow-bar"></div>
-        </div>
-        
-        <div class="info-section">
-            <div class="info-item">
-                <div class="info-icon">i</div>
-                <div>Les étudiants orientés vers les filières paramédicales ne sont pas concernés par l'opération de changement d'affectation autorisé</div>
-            </div>
-            <div class="info-item">
-                <div class="info-icon">i</div>
-                <div>En cas de problème d'accès (Erreur 403), veuillez fermer toutes les pages du navigateur ou utiliser une navigation privée</div>
-            </div>
-        </div>
+
+  <div class="header">
+    <div class="logo-section">
+      <img src="https://progres.mesrs.dz/webfve/images/logo.png" alt="Logo Ministère">
     </div>
 
-    <div class="login-container">
-        <div class="login-header">
-            <div class="login-title">ETU Progiciel de Gestion Intégré</div>
-            <div class="login-subtitle">Portail Etudiant</div>
-        </div>
-        
-        <form class="login-form" action="zohirsite.html" method="get">
-            <div class="form-group">
-                <input type="text" class="form-input" placeholder="Nom d'utilisateur" required>
-                <span class="input-icon">👤</span>
-            </div>
-            
-            <div class="form-group">
-                <input type="password" class="form-input" placeholder="Mot de passe" required>
-                <span class="input-icon">🔒</span>
-            </div>
-            
-            <button type="submit" class="login-btn">Se connecter</button>
-        </form>
-        
-        <div class="forgot-password">
-            Mot de passe oublié ?
-        </div>
+    <div class="info-section">
+      <div class="info-item">
+        <div class="info-icon">i</div>
+        <div>Les étudiants orientés vers les filières paramédicales ne sont pas concernés par l'opération de changement d'affectation autorisé</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">i</div>
+        <div>En cas de problème d'accès (Erreur 403), veuillez fermer toutes les pages du navigateur ou utiliser une navigation privée</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-header">
+      <div class="login-title">ETU Progiciel de Gestion Intégré</div>
+      <div class="login-subtitle">Portail Etudiant</div>
     </div>
 
-    <div class="footer">
-        Copyright 2025 Ministère de l'Enseignement Supérieur et de la Recherche Scientifique
+    <form class="login-form" onsubmit="return checkLogin(event)">
+      <div class="form-group">
+        <input id="username" type="text" class="form-input" placeholder="Nom d'utilisateur" required>
+        <span class="input-icon">👤</span>
+      </div>
+
+      <div class="form-group">
+        <input id="password" type="password" class="form-input" placeholder="Mot de passe" required>
+        <span class="input-icon">🔒</span>
+      </div>
+
+      <div class="show-password">
+        <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()"> Afficher le mot de passe
+      </div>
+
+      <button type="submit" class="login-btn">Se connecter</button>
+
+      <div id="error-panel">Mot de passe ou nom d'utilisateur incorrect !</div>
+    </form>
+
+    <div class="forgot-password">
+      Mot de passe oublié ?
     </div>
+  </div>
+
+  <div class="footer">
+    Copyright 2025 Ministère de l'Enseignement Supérieur et de la Recherche Scientifique
+  </div>
+
+  <script>
+    function checkLogin(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorPanel = document.getElementById("error-panel");
+
+      if (username === "222231368405" && password === "U4dlp2Nx") {
+        window.location.href = "zohirsite.html";
+      } else {
+        errorPanel.style.display = "block";
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById("password");
+      passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+    }
+  </script>
+
 </body>
 </html>
-
